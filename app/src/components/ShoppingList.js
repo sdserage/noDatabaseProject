@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 
 // Models
-import Item, {createNewItem} from '../models/Item';
+import {createNewItem} from '../models/Item';
 
 // Components
 import ShoppingItem from './ShoppingItem';
@@ -36,7 +36,14 @@ class ShoppingList extends Component {
         <h1>My Shopping List</h1>
         <ul>
           {
-            this.state.itemList.map(item=>(<ShoppingItem/>))
+            this.state.itemList.map(item=>{
+              return (<ShoppingItem
+                name={item.name}
+                price={item.price}
+                quantity={item.quantity}
+                notes={item.notes}
+                purchased={item.purchased}/>)
+            })
           }
         </ul>
       </div>
