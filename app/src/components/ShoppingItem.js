@@ -26,7 +26,14 @@ export default class ShoppingItem extends Component{
   render(){
     return(
       //<span>{this.state.name} {this.state.price} {this.state.quantity} {this.state.notes} {this.state.purchased}</span>
-      <li>{this.state.name} {'$'+(this.state.price/100).toFixed(2)} {this.state.quantity} {this.state.notes} {this.state.purchased?<input type="checkbox"/>:<input type="checkbox" checked/>}<button>Click Here</button></li>
+      <li>
+        {this.state.name}
+        {'$'+(this.state.price/100).toFixed(2)}
+        {this.state.quantity}
+        {this.state.notes}
+        {this.state.purchased?<input type="checkbox"/>:<input type="checkbox" checked/>} {/*Should be upgraded to a Toggle Component*/}
+        <button>Click Here</button>
+      </li>
     );
   }
 };
