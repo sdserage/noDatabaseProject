@@ -1,5 +1,6 @@
 export default class Item {
-  constructor(name){
+  constructor(id, name){
+    this.id = id;
     this.name = name; // string value
     this.price = 0; // number value
     this.quantity = 1; // number value
@@ -14,8 +15,8 @@ export default class Item {
     this.purchased = this.purchased ? false : true;
   };
 };
-export function createNewItem(name, price=0, quantity=1, notes= ""){
-  let newItem = new Item(name);
+export function createNewItem(id, name, price=0, quantity=1, notes= ""){
+  let newItem = new Item(id, name);
   if(price){
     newItem.setPrice(price);
   }

@@ -15,10 +15,7 @@ class ShoppingList extends Component {
     this.state = {
       itemList:testList
     }
-  }
-
-  componentWillReceiveProps(props){
-
+    this.updateItem=this.updateItem.bind(this);
   }
 
   addItem(name){
@@ -30,19 +27,30 @@ class ShoppingList extends Component {
     })
   }
 
+  updateItem(updatedItem){
+    let copyItemList = this.state.itemList;
+    let itemIndex = copyItemList.findIndex(item => item.id === updatedItem.id);
+    copyItemList.splice(itemIndex, 1, updatedItem);
+    this.setState({
+      itemList:copyItemList
+    })
+  }
+
   render(){
     return(
       <div>
         <h1>My Shopping List</h1>
         <ul>
           {
-            this.state.itemList.map(item=>{
+            this.state.itemList.map(item =>{
               return (<ShoppingItem
+                id={item.id}
                 name={item.name}
                 price={item.price}
                 quantity={item.quantity}
                 notes={item.notes}
-                purchased={item.purchased}/>)
+                purchased={item.purchased}
+                updateItem={this.updateItem}/>)
             })
           }
         </ul>
