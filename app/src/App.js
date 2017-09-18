@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './App.css';
 
+import axios from "axios";
+import url from './api';
 // Models
 //import {createNewItem} from './models/Item';
 
@@ -20,12 +22,17 @@ class App extends Component {
     this.addItem=this.addItem.bind(this);
   }
 
-  addItem(item){
-    let shoppingListCopy = this.state.shoppingList;
-    shoppingListCopy.push(item);
-    this.setState({
-      shoppingList: shoppingListCopy
+  componentDidMount(){
+    axios.get(url).then(response=>{
+      this.setState({shoppingList:response.data})
     });
+  }
+
+  addItem(item){
+    axios.post(url,item).then(response=>{
+      this.setState({shoppingList: response.data})
+    });
+
   }
 
   render() {

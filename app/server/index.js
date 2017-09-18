@@ -5,7 +5,7 @@ const ic = require('./controllers/items_controller');
 const app = express();
 
 app.use(bodyParser.json());
-app.use(express.static(`${__dirname}/../public/build`));
+app.use(express.static(`${__dirname}/../build`));
 
 const itemsUrl = '/api/items';
 app.post(itemsUrl, ic.create);
