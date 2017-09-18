@@ -13,5 +13,5 @@ app.get(itemsUrl, ic.read);
 app.put(`${itemsUrl}/:index`,ic.update);
 app.delete(`${itemsUrl}/:index`,ic.delete);
 
-const port = 3000;
+const port = 3001;
 app.listen(port, () => {console.log(`Server listening ${port.toLocaleString()} leagues under the sea...`)});
