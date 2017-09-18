@@ -1,24 +1,83 @@
-.App {
+body{
+
+}
+
+.app-wrapper{
+  position: relative;
+  padding-top: 20px;
+  font-family: cursive, verdana, sans-serif;
+  font-size: 1.5em;
+  font-weight: bold;
+  margin-left: 20px;
+  margin-right: 20px;
+  background-image: url(./images/sheet-of-paper.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 100% 100%;
+}
+
+.header{
   text-align: center;
+  font-size: 2em;
+  font-weight: bold;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.shopping-list{
+  padding-top: 30px;
+  padding-bottom: 30px;
+  margin: 0px 20% 0px 20%;
+  display: flex;
+  flex-direction: column;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.vertical-red-line{
+  position: absolute;
+  margin-left: 20px;
+  height: 800px;
+  border-left-style: solid;
+  border-left-color: red;
+  border-left-width: 1px;
 }
 
-.App-intro {
-  font-size: large;
+.shopping-item{
+  display: flex;
+  justify-content: space-between;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.shopping-item p{
+  width: 100px;
+}
+
+.delete-icon {
+  margin-top: 5px;
+  background-image: url(./images/Red_X2.svg.png);
+  background-size: cover;
+  height: 20px;
+  width: 20px;
+}
+
+.delete-icon:hover{
+  background-image: url(./images/Red_X.svg.png);
+}
+
+.total{
+  margin-top: 50px;
+  font-size: 2em;
+  font-weight: bolder;
+  display: flex;
+  justify-content: space-between;
+}
+
+.add-item{
+  margin-left: 30px;
+  padding-left: 20%;
+  padding-bottom: 20px;
+}
+
+.hidden{
+  /*visibility: hidden;*/
+}
+
+.not-hidden{
+  visibility: visible;
 }

@@ -5,13 +5,21 @@ export default class EditButton extends Component {
     super();
     this.state={
       inputValue:"",
-      index: null
+      index: null,
+      placeholderVal:""
     }
   }
 
   componentWillMount(){
     this.setState({
-      index: this.props.index
+      index: this.props.index,
+      placeholderVal: this.props.placeholderVal
+    })
+  }
+
+  componentWillReceiveProps(nextProps){
+    this.setState({
+      placeholderVal: nextProps.placeholderVal
     })
   }
 
@@ -28,8 +36,8 @@ export default class EditButton extends Component {
   render(){
     return(
       <div>
-        <input type="text" onChange={e=>this.handleChange(e.target.value)}/>
-        <button onClick={()=>this.updateName(this.state.inputValue)}>Update Name</button>
+        <input className="hidden" placeholder={this.state.placeholderVal} type="text" onChange={e=>this.handleChange(e.target.value)}/>
+        <button className="hidden" onClick={()=>this.updateName(this.state.inputValue)}>Update Name</button>
       </div>
     );
   }

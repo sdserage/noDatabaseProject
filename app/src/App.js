@@ -53,7 +53,7 @@ class App extends Component {
   render() {
     return (
       <div className="app-wrapper">
-        <h1>My Shopping List</h1>
+        <h1 className="header">My Shopping List</h1>
         <ShoppingList list={this.state.shoppingList} deleteItem={this.deleteItem} editItem={this.editItem}/>
         <AddItem addItem={this.addItem}/>
       </div>

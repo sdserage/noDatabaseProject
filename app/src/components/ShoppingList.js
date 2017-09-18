@@ -32,19 +32,22 @@ export default class ShoppingList extends Component {
   }
 
   render(){
+    let total = 0;
     return(
 
-      <ul>
+      <ul className="shopping-list">
         {
           this.state.list.map((item, index) => {
-            return <li key={index}><span>
-              {item.name}
-              {'$'+(item.price/100).toFixed(2)}
-              <button onClick={() => this.delete(index)}>Remove</button>
-              <EditButton index={index} edit={this.edit}/>
-            </span></li>
+            total+= item.price;
+            return <li key={index} className="shopping-item">
+              <p>{item.name}</p>
+              <p>{'$'+(item.price/100).toFixed(2)}</p>
+              <EditButton placeholderVal={item.name} index={index} edit={this.edit}/>
+              <div className="delete-icon" onClick={() => this.delete(index)}></div>
+            </li>
           })
         }
+        <li className="total"><p>Estimated Total:</p><p>${(total/100).toFixed(2)}</p></li>
       </ul>
     );
   }

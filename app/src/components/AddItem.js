@@ -29,7 +29,7 @@ export default class AddItem extends Component{
         <input type="text"
         onChange={e=>this.handleChange(e.target.value)}
         />
-        <button onClick={this.add}>Add</button>
+        <button onClick={this.add}>Add New Item</button>
       </div>
     )
   };
