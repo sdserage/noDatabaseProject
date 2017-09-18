@@ -23,7 +23,7 @@ export default class ShoppingList extends Component {
       <ul>
         {
           this.state.list.map(item => {
-            return <li><span>{item.name} {item.price}</span></li>
+            return <li><span>{item.name} {'$'+(item.price/100).toFixed(2)}</span></li>
           })
         }
       </ul>
